@@ -1,18 +1,13 @@
 <!-- registration/login.html -->
-
-{% block title %}Login{% endblock %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'registration/style.css' %}">
 
 {% block content %}
-  <h2>Login</h2>
+  <h1>Welcome Back! Please Login</h1>
 
     <form method="post">
       {% csrf_token %}
-      <table>
         {{ form.as_p }}
-        <tr>
-          <td>&nbsp;</td>
-          <td><input type="submit" value="Submit"></td>
-        </tr>
-      </table>
+          <input class="button-17" type="submit" value="Submit">
     </form>
 {% endblock %}
