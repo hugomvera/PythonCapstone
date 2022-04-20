@@ -7,19 +7,36 @@
 			<div class="card" style="width: 18rem">
 				<div class="card-body">
 					<h5 class="card-title" id="name"></h5>
-					<p class="card-text" id="balance"></p>
-					<a href="#" class="btn btn-primary" onclick="withdrawX(1)"
+					<p class="card-text" id="balance" value=""></p>
+					<form action="./withdraw" method="POST">
+						{% csrf_token %}
+						<input
+							type="text"
+							id="output"
+							name="test"
+							value="balance"
+							readonly
+						/>
+						<input type="submit" value="Submit" />
+					</form>
+					<a
+						href="#"
+						class="btn btn-primary"
+						onclick="withdrawX(1);updateDisplay()"
 						>Withdraw $1</a
+					>
+					<a
+						href="#"
+						class="btn btn-primary"
+						onclick="DepositX(1);updateDisplay()"
+						>Deposit $1</a
 					>
 				</div>
 			</div>
 			<p></p>
 		</div>
 	</div>
-	<form action="" method="post">
-		{% csrf_token %} {{ form.as_p }}
-		<input type="submit" value="Submit" />
-	</form>
+
 	<script>
 		var balance = -1;
 		function loadData(key) {
@@ -31,22 +48,22 @@
 				balance = balance.replace("$", "");
 				balance = parseInt(balance);
 				document.getElementById("balance").innerHTML = "$" + balance;
+				output = document.getElementById("output");
+				output.value = balance;
 			}
 		}
 		function withdrawX(X) {
 			balance -= X;
 			document.getElementById("balance").innerHTML = "$" + balance;
 		}
-
-		function updateData() {
-			$(".ajaxProgress").show();
-			$.ajax({
-				type: "POST",
-				data: {
-					csrfmiddlewaretoken: "{{csrf_token}}",
-					newbalance: $("#balance").val(),
-				},
-			});
+		function DepositX(X) {
+			balance += X;
+			document.getElementById("balance").innerHTML = "$" + balance;
+		}
+		function updateDisplay() {
+			var output = document.getElementById("output");
+			output.value = balance;
+			console.log(output.value);
 		}
 	</script>
 	<a href="{% url 'home' %}">Back to Home</a>

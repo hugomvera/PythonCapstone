@@ -3,9 +3,10 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
 from .models import Player
+from .forms import PlayerForm
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 
 # def home(request):
 # return render(request,"home.html")
@@ -27,11 +28,11 @@ def users(request):
     return render(request, "users.html", {"players": users})
 
 
-def user(request):
-    user = Player.balance
-    return render(request, "withdraw.html", {"player": user})
-
-
-def updateuser(request):
-    test = request.POST.get("newbalance", "")
-    response_data = {}
+def updateuser(request, *args, **kwargs):
+    form = PlayerForm(request.POST or None)
+    if(form.is_valid()):
+        data = form.cleaned_data
+        Player.objects.update(balance=data['test'])
+        form = PlayerForm()
+        return HttpResponseRedirect("/home/users")
+    return render(request, "withdraw.html", {"form": form})
