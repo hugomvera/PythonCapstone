@@ -1,16 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Contact
+from .models import Client
 
 
 # Create your views here.
 
-# /contacts  -> index
+# /clients  -> index
 def index(request):
     # Contact.objects.filter()
-    contacts = Contact.objects.all()
+    clients = Client.objects.all()
     # return HttpResponse('Hello World')
-    return render(request, 'index.html', {'contacts': contacts})
+    return render(request, 'index.html', {'clients': clients})
 
 
 def new(request):

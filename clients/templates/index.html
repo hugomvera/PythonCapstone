@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Clients</h1>
+<div class="row">
+	{% for client in clients %}
+	<div class="col">
+		<div class="card" style="width: 18rem">
+			<img src="{{ client.image_url}}" class="card-img-top" alt="..." />
+			<div class="card-body">
+				<h5 class="card-title">{{ client.name }}</h5>
+				<p class="card-text">{{client.cellPhone}}</p>
+				<a href="#" class="btn btn-primary">Edit</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

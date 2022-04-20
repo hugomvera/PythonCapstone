@@ -16,12 +16,12 @@ def home(request):
     return render(request, "users/home.html")
 
 
-def users(request):
-    users = Player.objects.all()
-    return render(request, "users.html", {"players": users})
-
-
 class SignUp(CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy("login")
     template_name = "registration/signup.html"
+
+
+def users(request):
+    users = Player.objects.all()
+    return render(request, "users.html", {"players": users})
