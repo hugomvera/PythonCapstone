@@ -1,18 +1,27 @@
 {%extends 'base.html'%} {% block content %}
 <h2>Players</h2>
-
+<script>
+	function saveData(key, value) {
+		sessionStorage.setItem(key, value);
+	}
+</script>
 <div class="row">
 	{% for users in players %}
 	<div class="col">
 		<div class="card" style="width: 18rem">
 			<div class="card-body">
-				<h5 class="card-title">{{users.name}}</h5>
+				<h5 class="card-title" id="{{users.name}}">{{users.name}}</h5>
 				<p class="card-text">{{users.piece}}</p>
-				<p class="card-text">${{users.balance}}</p>
+				<p class="card-text" id="{{users.balance}}">${{users.balance}}</p>
 			</div>
 			<a href="#" class="btn btn-primary">Deposit</a>
 			<p></p>
-			<a href="#" class="btn btn-primary">Withdraw</a>
+			<a
+				href="withdraw"
+				class="btn btn-primary"
+				onclick="saveData('name',document.getElementById('{{users.name}}').textContent); saveData('balance',document.getElementById('{{users.balance}}').textContent)"
+				>Withdraw</a
+			>
 			<p></p>
 			<a href="#" class="btn btn-primary">Change Information</a>
 		</div>

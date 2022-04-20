@@ -25,3 +25,13 @@ class SignUp(CreateView):
 def users(request):
     users = Player.objects.all()
     return render(request, "users.html", {"players": users})
+
+
+def user(request):
+    user = Player.balance
+    return render(request, "withdraw.html", {"player": user})
+
+
+def updateuser(request):
+    test = request.POST.get("newbalance", "")
+    response_data = {}
