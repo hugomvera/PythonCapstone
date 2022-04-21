@@ -1,5 +1,11 @@
 {%extends 'base.html'%} {% block content %}
 <h1>Players</h1>
+<script>
+	function saveData(key, value) {
+		sessionStorage.setItem(key, value);
+		console.log(key);
+	}
+</script>
 <a href="{% url 'home' %}">Back to Home</a>
 
 <div class="row">
@@ -11,8 +17,13 @@
 				<p class="card-text">{{users.piece}}</p>
 				<p class="card-text">${{users.balance}}</p>
 			</div>
-			<a href="#" class="btn btn-primary">Deposit</a>
-			<a href="#" class="btn btn-primary">Withdraw</a>
+			<a
+				href="withdraw"
+				class="btn btn-primary"
+				onclick="saveData('name',document.getElementById('{{users.name}}').textContent); saveData('balance',document.getElementById('{{users.balance}}').textContent)"
+				>Withdraw/Deposit</a
+			>
+
 			<a href="#" class="btn btn-primary">Change Information</a>
 		</div>
 
