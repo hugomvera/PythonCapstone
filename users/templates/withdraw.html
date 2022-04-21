@@ -1,0 +1,153 @@
+{%extends 'base.html'%} {% block content %}
+<body onload="loadData('name'); loadData('balance')">
+	<h1>Withdraw and Deposit</h1>
+	<div class="row">
+		<div class="col">
+			<div class="card" style="width: 25rem">
+				<div class="card-body">
+					<h5 class="card-title" id="name"></h5>
+					<p class="card-text" id="balance" value=""></p>
+					<form action="./withdraw" method="POST">
+						{% csrf_token %}
+						<input
+							type="text"
+							id="output"
+							name="test"
+							value="balance"
+							style="display: none"
+							readonly
+						/>
+						<input
+							name="testname"
+							style="display: none"
+							value="demo"
+							id="outputname"
+						/>
+						<input type="submit" value="Submit" />
+					</form>
+					<div class="buttons">
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(1);updateDisplay()"
+							>Withdraw $1</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(1);updateDisplay()"
+							>Deposit $1</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(5);updateDisplay()"
+							>Withdraw $5</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(5);updateDisplay()"
+							>Deposit $5</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(10);updateDisplay()"
+							>Withdraw $10</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(10);updateDisplay()"
+							>Deposit $10</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(20);updateDisplay()"
+							>Withdraw $20</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(20);updateDisplay()"
+							>Deposit $20</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(50);updateDisplay()"
+							>Withdraw $50</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(50);updateDisplay()"
+							>Deposit $50</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(100);updateDisplay()"
+							>Withdraw $100</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(100);updateDisplay()"
+							>Deposit $100</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(500);updateDisplay()"
+							>Withdraw $500</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(500);updateDisplay()"
+							>Deposit $500</a
+						>
+					</div>
+				</div>
+			</div>
+			<p></p>
+		</div>
+	</div>
+
+	<script>
+		var balance = -1;
+		function loadData(key) {
+			if (key == "name") {
+				document.getElementById("name").innerHTML =
+					sessionStorage.getItem(key) + "'s Balance";
+				username = document.getElementById("outputname");
+				username.value = sessionStorage.getItem(key);
+			} else if (key == "balance") {
+				balance = sessionStorage.getItem(key);
+				balance = balance.replace("$", "");
+				balance = parseInt(balance);
+				document.getElementById("balance").innerHTML = "$" + balance;
+				output = document.getElementById("output");
+				output.value = balance;
+			}
+		}
+		function withdrawX(X) {
+			balance -= X;
+			document.getElementById("balance").innerHTML = "$" + balance;
+		}
+		function DepositX(X) {
+			balance += X;
+			document.getElementById("balance").innerHTML = "$" + balance;
+		}
+		function updateDisplay() {
+			var output = document.getElementById("output");
+			output.value = balance;
+			console.log(output.value);
+		}
+	</script>
+	<a href="{% url 'home' %}">Back to Home</a>
+	{% endblock %}
+</body>

@@ -1,0 +1,59 @@
+.top-border{
+    background-image: url("../border.png");
+    background-repeat: repeat-x;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+.profile{
+    border-radius: 100%;
+    margin-top: 45px;
+    height: 130px;
+    width: 130px;
+}
+
+@font-face{
+    font-family: 'Monopoly Sans';
+    src: url('./MONOPOLY_INLINE.ttf') format('truetype');
+}
+
+.navbar-brand{
+    font-family: 'Monopoly Sans';
+    font-size: 30px;
+}
+
+.navbar{
+    border-bottom: 1px solid black;
+    background-image: url("./border.png");
+    background-repeat: repeat-x;
+    height: 105px;
+}
+
+body {
+    text-align: center;
+    font-family: arial;
+    background-color: #BFDBAE;
+    margin: 0 auto;
+}
+h1 {
+    font-size: 70px;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    margin: 0;
+}
+
+.card{
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 7px;
+}
+
+.btn-primary{
+    width: 170px;
+    margin: 5px auto;
+}
+
+li{
+    list-style: none;
+}
