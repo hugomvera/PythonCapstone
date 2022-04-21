@@ -15,6 +15,9 @@ class Client(models.Model):
     cellPhone = models.CharField(max_length=999999)
     email = models.CharField(max_length=999999)
     image_url = models.CharField(max_length=999999)
+    balance = models.FloatField(max_length=999999,default=0.0)
+    applicationId = models.CharField(max_length=999999,default='0')
+
 
 class Message(models.Model):
     code = models.CharField(max_length=10)

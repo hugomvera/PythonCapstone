@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+
     <h1>Clients</h1>
     <div class="row">
          {% for client in clients %}
@@ -8,12 +10,44 @@
             <div class="card" style="width: 18rem;">
                 <img src="{{ client.image_url}}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ client.name }}</h5>
-                    <p class="card-text">{{client.cellPhone}}</p>
+                    <h5 class="card-title">Name:{{ client.name }}</h5>
+                    <p class="card-text">Id={{client.applicationId}}</p>
+<!--                    add withdrawals here-->
+        <p id="demo"></p>
+                    {% for withdrawal in withdrawals %}
+                        {% if client.applicationId == withdrawal.applicationId %}
+                            <p class="card-text">withdrawal={{withdrawal.transactionAmount}}</p>
+                        {% endif %}
+                    {% endfor %}
+                    {% for deposit in deposits %}
+                        {% if client.applicationId == deposit.applicationId %}
+                            <p class="card-text">deposit ={{deposit.transactionAmount}}</p>
+                        {% endif %}
+                    {% endfor %}
+<!--                    <p class="card-text">Balace =$ {{Balance.0}}</p>-->
+                    <p class="card-text"></p>
                     <a href="#" class="btn btn-primary">Edit</a>
                 </div>
             </div>
         </div>
          {% endfor %}
     </div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for b in Balance %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{b}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}
