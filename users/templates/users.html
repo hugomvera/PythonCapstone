@@ -5,6 +5,8 @@
 		sessionStorage.setItem(key, value);
 	}
 </script>
+<a href="{% url 'home' %}">Back to Home</a>
+
 <div class="row">
 	{% for users in players %}
 	<div class="col">
@@ -14,20 +16,15 @@
 				<p class="card-text">{{users.piece}}</p>
 				<p class="card-text" id="{{users.balance}}">${{users.balance}}</p>
 			</div>
-			<p></p>
 			<a
 				href="withdraw"
 				class="btn btn-primary"
 				onclick="saveData('name',document.getElementById('{{users.name}}').textContent); saveData('balance',document.getElementById('{{users.balance}}').textContent)"
 				>Withdraw/Deposit</a
 			>
-			<p></p>
 			<a href="#" class="btn btn-primary">Change Information</a>
 		</div>
-		<p></p>
 	</div>
 	{%endfor%}
 </div>
-
-<a href="{% url 'home' %}">Back to Home</a>
 {% endblock %}
