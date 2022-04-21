@@ -53,3 +53,7 @@ h1 {
     width: 170px;
     margin: 5px auto;
 }
+
+li{
+    list-style: none;
+}
