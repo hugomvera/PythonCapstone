@@ -1,25 +1,28 @@
-.top-border{
-    background-image: url("../border.png");
-    background-repeat: repeat-x;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
+.top-border {
+	background-image: url("../border.png");
+	background-repeat: repeat-x;
+	display: flex;
+	justify-content: center;
+	margin: 0 auto;
 }
-.profile{
-    border-radius: 100%;
-    margin-top: 45px;
-    height: 130px;
-    width: 130px;
+.profile {
+	border-radius: 100%;
+	margin-top: 45px;
+	height: 130px;
+	width: 130px;
 }
 
 * {
-    text-align: center;
-    font-family: arial;
-    background-color: #BFDBAE;
+	text-align: center;
+	font-family: arial;
+	background-color: #bfdbae;
 }
-h1 {
-    font-size: 70px;
-    color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+h2 {
+	font-size: 70px;
+	color: white;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: black;
+}
+.card {
+	margin: auto;
 }

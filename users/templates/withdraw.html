@@ -4,7 +4,7 @@
 
 	<div class="row">
 		<div class="col">
-			<div class="card" style="width: 18rem">
+			<div class="card" style="width: 20rem">
 				<div class="card-body">
 					<h5 class="card-title" id="name"></h5>
 					<p class="card-text" id="balance" value=""></p>
@@ -15,6 +15,7 @@
 							id="output"
 							name="test"
 							value="balance"
+							style="display: none"
 							readonly
 						/>
 						<input
@@ -25,30 +26,92 @@
 						/>
 						<input type="submit" value="Submit" />
 					</form>
-					<a
-						href="#"
-						class="btn btn-primary"
-						onclick="withdrawX(1);updateDisplay()"
-						>Withdraw $1</a
-					>
-					<a
-						href="#"
-						class="btn btn-primary"
-						onclick="DepositX(1);updateDisplay()"
-						>Deposit $1</a
-					>
-					<a
-						href="#"
-						class="btn btn-primary"
-						onclick="withdrawX(5);updateDisplay()"
-						>Withdraw $5</a
-					>
-					<a
-						href="#"
-						class="btn btn-primary"
-						onclick="DepositX(5);updateDisplay()"
-						>Deposit $5</a
-					>
+					<div class="buttons">
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(1);updateDisplay()"
+							>Withdraw $1</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(1);updateDisplay()"
+							>Deposit $1</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(5);updateDisplay()"
+							>Withdraw $5</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(5);updateDisplay()"
+							>Deposit $5</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(10);updateDisplay()"
+							>Withdraw $10</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(10);updateDisplay()"
+							>Deposit $10</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(20);updateDisplay()"
+							>Withdraw $20</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(20);updateDisplay()"
+							>Deposit $20</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(50);updateDisplay()"
+							>Withdraw $50</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(50);updateDisplay()"
+							>Deposit $50</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(100);updateDisplay()"
+							>Withdraw $100</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(100);updateDisplay()"
+							>Deposit $100</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="withdrawX(500);updateDisplay()"
+							>Withdraw $500</a
+						>
+						<a
+							href="#"
+							class="btn btn-primary"
+							onclick="DepositX(500);updateDisplay()"
+							>Deposit $500</a
+						>
+					</div>
 				</div>
 			</div>
 			<p></p>
