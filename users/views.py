@@ -28,11 +28,12 @@ def users(request):
     return render(request, "users.html", {"players": users})
 
 
-def updateuser(request, *args, **kwargs):
+def updateuser(request, **kwargs):
     form = PlayerForm(request.POST or None)
+    user = Player.objects.all()
     if(form.is_valid()):
         data = form.cleaned_data
-        Player.objects.update(balance=data['test'])
+        user.filter(name=data['testname']).update(balance=data['test'])
         form = PlayerForm()
         return HttpResponseRedirect("/home/users")
     return render(request, "withdraw.html", {"form": form})

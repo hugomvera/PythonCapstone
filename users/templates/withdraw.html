@@ -17,6 +17,12 @@
 							value="balance"
 							readonly
 						/>
+						<input
+							name="testname"
+							style="display: none"
+							value="demo"
+							id="outputname"
+						/>
 						<input type="submit" value="Submit" />
 					</form>
 					<a
@@ -43,6 +49,8 @@
 			if (key == "name") {
 				document.getElementById("name").innerHTML =
 					sessionStorage.getItem(key) + "'s Balance";
+				username = document.getElementById("outputname");
+				username.value = sessionStorage.getItem(key);
 			} else if (key == "balance") {
 				balance = sessionStorage.getItem(key);
 				balance = balance.replace("$", "");
