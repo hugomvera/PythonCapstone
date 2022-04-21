@@ -1,8 +1,8 @@
 <!--/templates/register.html-->
-
+{%extends 'base.html'%}
 {% block content %}
-<h2>Register</h2>
-
+<h1>Register</h1>
+<br>
 <form method="post">
     {% csrf_token %}
     {{form}}

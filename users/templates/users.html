@@ -1,25 +1,22 @@
 {%extends 'base.html'%} {% block content %}
-<h2>Players</h2>
+<h1>Players</h1>
+<a href="{% url 'home' %}">Back to Home</a>
 
 <div class="row">
 	{% for users in players %}
 	<div class="col">
-		<div class="card" style="width: 18rem">
+		<div class="card" style="width: 15rem">
 			<div class="card-body">
-				<h5 class="card-title">{{users.name}}</h5>
+				<h3 class="card-title">{{users.name}}</h3>
 				<p class="card-text">{{users.piece}}</p>
 				<p class="card-text">${{users.balance}}</p>
 			</div>
 			<a href="#" class="btn btn-primary">Deposit</a>
-			<p></p>
 			<a href="#" class="btn btn-primary">Withdraw</a>
-			<p></p>
 			<a href="#" class="btn btn-primary">Change Information</a>
 		</div>
-		<p></p>
+
 	</div>
 	{%endfor%}
 </div>
-
-<a href="{% url 'home' %}">Back to Home</a>
 {% endblock %}

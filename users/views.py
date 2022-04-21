@@ -13,7 +13,8 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, "users/home.html")
+    users = Player.objects.all()
+    return render(request, "users/home.html", {"players": users})
 
 
 class SignUp(CreateView):
