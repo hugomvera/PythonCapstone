@@ -1,6 +1,6 @@
 # PythonCapstone
-# Here is a Website that will allow online tracking of a Monopoly Bank Game. 
-# It will keeps track of deposits, withdrawals of multiple users
+ Here is a Website that will allow online tracking of a Monopoly Bank Game. 
+ It will keeps track of deposits, withdrawals of multiple users
 # It will allow the administrator to create,Delete Users into a SQLITE Database
 ![Screenshot from 2022-06-01 08-46-20](https://user-images.githubusercontent.com/35750750/171447172-86d5c7ef-75f9-4cd4-b2b4-c34128824813.png)
 # Admin can login 
